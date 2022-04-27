@@ -6,3 +6,12 @@
 - [김준모](https://github.com/a00700c)
 - [장우영](https://github.com/silofox)
 
+## Development Tool
+- StarUML 5.0.2
+
+## 과제 1
+- Requirement list
+- Actor description
+- Use case diagram
+- Use case description
+- UI screen design
