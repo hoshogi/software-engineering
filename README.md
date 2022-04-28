@@ -9,6 +9,18 @@
 ## Development Tool
 - StarUML 5.0.2
 
+## Git Convention
+- feat: 새로운 기능 추가
+- fix: 버그 수정
+- design: 사용자 UI 디자인 변경
+- docs: 문서 수정
+- style: 코드 포맷 변경, 세미콜론 누락, 코드 수정이 없는 경우
+- refactor: 코드 리팩토링
+- test: 테스트 추가, 테스트 리팩토링
+- chore: 빌드 테스트 업데이트, 패키지 매니저 설정
+- rename: 파일, 폴더명을 수정하거나 옮기는 작업
+- remove: 파일, 폴더 삭제
+
 ## 과제 1
 - Requirement list
 - Actor description
