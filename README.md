@@ -24,6 +24,6 @@
 ## 과제 1
 - Requirement list
 - Actor description
-- Use case diagram
+- [Use case diagram](https://github.com/hoshogi/software-engineering/blob/main/UseCaseDiagram/UseCaseDiagram.png)
 - Use case description
 - UI screen design
