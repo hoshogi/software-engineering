@@ -8,6 +8,9 @@
 ## Development Tool
 - StarUML 5.0.2
 
+## Design Tool
+- Figma
+
 ## Git Convention
 - feat: 새로운 기능 추가
 - fix: 버그 수정
@@ -21,8 +24,8 @@
 - remove: 파일, 폴더 삭제
 
 ## 과제 1
-- Requirement list
-- Actor description
-- [Use case diagram](https://github.com/hoshogi/software-engineering/blob/main/UseCaseDiagram/UseCaseDiagram.png)
-- Use case description
-- UI screen design
+- [Requirement list](https://github.com/hoshogi/software-engineering/blob/main/Requirement%20list/Requirement%20list.md)
+- [Actor description](https://github.com/hoshogi/software-engineering/blob/main/Actor%20description/Actor%20description.md)
+- [Use case diagram](https://github.com/hoshogi/software-engineering/blob/main/Use%20case%20description/Use%20case%20description.md)
+- [Use case description](https://github.com/hoshogi/software-engineering/blob/main/Use%20case%20description/Use%20case%20description.md)
+- [UI screen design](https://github.com/hoshogi/software-engineering/blob/main/UI%20screen%20design/UI%20screen%20design.md)
