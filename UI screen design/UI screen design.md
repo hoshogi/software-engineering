@@ -1,22 +1,22 @@
 # UI Screen Design
 
 ## 홈 page
-![홈](https://user-images.githubusercontent.com/71253970/166150372-16b25526-100d-4698-b015-d2e386f7b406.png)
+![홈](https://user-images.githubusercontent.com/71253970/166152675-cec69aac-4876-44f4-a8ba-70f94a228bc4.png)
 
 ## 회원가입 page
-![회원가입](https://user-images.githubusercontent.com/71253970/166150375-ad8fc32b-4fec-4047-a960-e41ce8be7c44.png)
+![회원가입](https://user-images.githubusercontent.com/71253970/166152676-45de21b8-c814-4e0d-a8e6-c35c106236a2.png)
 
 ## 로그인 page
-![로그인](https://user-images.githubusercontent.com/71253970/166150376-1875a878-1d98-4ce6-bcad-6b453e33a650.png)
+![로그인](https://user-images.githubusercontent.com/71253970/166152677-07b5121a-ed41-4564-b014-7e9235f5e4bd.png)
 
 ## 판매 의류 등록 page
-![판매 의류 등록](https://user-images.githubusercontent.com/71253970/166150377-be49e813-f3c7-4e75-887b-a584535d7888.png)
+![판매 의류 등록](https://user-images.githubusercontent.com/71253970/166152678-f4a189f9-ad08-47a8-a20a-96ee8f909d55.png)
 
 ## 판매 중인 의류 상품 리스트 page
-![판매 중인 의류 상품 리스트](https://user-images.githubusercontent.com/71253970/166150378-9c2db859-020f-4cf9-a0a3-7922dee394e5.png)
+![판매 중인 의류 상품 리스트](https://user-images.githubusercontent.com/71253970/166152679-f585a99c-c084-43ec-b714-f88bc6b2fae1.png)
 
 ## 판매 완료된 상품 리스트 page
-![판매 완료된 상품 리스트](https://user-images.githubusercontent.com/71253970/166150380-10933fef-cfb5-4065-84eb-8819b6b65391.png)
+![판매 완료된 상품 리스트](https://user-images.githubusercontent.com/71253970/166152682-313c7059-7366-44fa-8d5b-3748762cfc21.png)
 
 ## 상품 검색 page
 ![상품 검색](https://user-images.githubusercontent.com/71253970/166150381-2a1275f4-8ca6-408f-affc-9c79adb7c4e7.png)
@@ -31,4 +31,4 @@
 ![상품 구매만족도 평가](https://user-images.githubusercontent.com/71253970/166150385-142d9ad5-49d2-46c1-9e25-b2bc3f8334ed.png)
 
 ## 설정 page
-![설정](https://user-images.githubusercontent.com/71253970/166150386-d03e6d6a-09b8-4428-86fb-d58ea4902e13.png)
+![설정](https://user-images.githubusercontent.com/71253970/166152684-e3db88e1-9289-4d3f-8e44-9b87611162d8.png)
