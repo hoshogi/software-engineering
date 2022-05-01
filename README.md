@@ -4,7 +4,6 @@
 ## 팀원
 - [이호석](https://github.com/hoshogi)
 - [김준모](https://github.com/a00700c)
-- [장우영](https://github.com/silofox)
 
 ## Development Tool
 - StarUML 5.0.2
