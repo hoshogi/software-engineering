@@ -24,8 +24,17 @@
 - remove: 파일, 폴더 삭제
 
 ## 과제 1
-- [Requirement list](https://github.com/hoshogi/software-engineering/blob/main/Requirement%20list/Requirement%20list.md)
-- [Actor description](https://github.com/hoshogi/software-engineering/blob/main/Actor%20description/Actor%20description.md)
-- [Use case diagram](https://github.com/hoshogi/software-engineering/blob/main/Use%20case%20description/Use%20case%20description.md)
-- [Use case description](https://github.com/hoshogi/software-engineering/blob/main/Use%20case%20description/Use%20case%20description.md)
-- [UI screen design](https://github.com/hoshogi/software-engineering/blob/main/UI%20screen%20design/UI%20screen%20design.md)
+- [Requirement list](https://github.com/hoshogi/software-engineering/blob/main/Hw1/Requirement%20list/Requirement%20list.md)
+- [Actor description](https://github.com/hoshogi/software-engineering/blob/main/Hw1/Actor%20description/Actor%20description.md)
+- [Use case diagram](https://github.com/hoshogi/software-engineering/blob/main/Hw1/Use%20case%20diagram/Use%20case%20diagram.md)
+- [Use case description](https://github.com/hoshogi/software-engineering/blob/main/Hw1/Use%20case%20description/Use%20case%20description.md)
+- [UI screen design](https://github.com/hoshogi/software-engineering/blob/main/Hw1/UI%20screen%20design/UI%20screen%20design.md)
+- [Hw1 report](https://github.com/hoshogi/software-engineering/blob/main/Hw1/Hw1%20report.pdf)
+
+## 과제 2
+- Requirement list
+- Use case diagram
+- Use case description
+- Communication diagram vs Sequence diagram
+- Analysis class diagram
+- Hw2 report
