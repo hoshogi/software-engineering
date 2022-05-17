@@ -17,7 +17,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "구매자"
+					"name": "Buyer"
 				}
 			]
 		},
@@ -149,7 +149,7 @@
 													"font": "Arial;13;0",
 													"left": 768,
 													"top": 192,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -250,7 +250,7 @@
 													"font": "Arial;13;0",
 													"left": 928,
 													"top": 192,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -351,7 +351,7 @@
 													"font": "Arial;13;0",
 													"left": 912,
 													"top": 176,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -452,7 +452,7 @@
 													"font": "Arial;13;0",
 													"left": 912,
 													"top": 224,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -1249,7 +1249,7 @@
 													"top": 366,
 													"width": 99.67724609375,
 													"height": 13,
-													"text": ": 구매자"
+													"text": ": Buyer"
 												},
 												{
 													"_type": "LabelView",
@@ -1261,7 +1261,7 @@
 													"font": "Arial;13;0",
 													"left": 546,
 													"top": 252,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -2438,9 +2438,9 @@
 												"$ref": "AAAAAAGAzPNgneN6q3A="
 											},
 											"font": "Arial;13;0",
-											"left": 901.6455078125,
+											"left": 901.166259765625,
 											"top": 395.5,
-											"width": 112.708984375,
+											"width": 113.66748046875,
 											"height": 13,
 											"alpha": 0.06769301125559483,
 											"distance": 59.135437767890075,
@@ -2993,7 +2993,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -3057,7 +3058,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -3175,7 +3177,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -3183,7 +3186,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGAzO2YF7PuyR4="
 					},
-					"name": "Role4"
+					"name": "Role4",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -3191,7 +3195,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGAzO2YF7PuyR4="
 					},
-					"name": "Role5"
+					"name": "Role5",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -3378,7 +3383,7 @@
 													"top": 294,
 													"width": 99.67724609375,
 													"height": 13,
-													"text": ": 구매자"
+													"text": ": Buyer"
 												},
 												{
 													"_type": "LabelView",
@@ -3390,7 +3395,7 @@
 													"font": "Arial;13;0",
 													"left": -22,
 													"top": -28,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -3488,7 +3493,7 @@
 													},
 													"visible": false,
 													"font": "Arial;13;0",
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -3585,7 +3590,7 @@
 													"visible": false,
 													"font": "Arial;13;0",
 													"left": 144,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -3685,7 +3690,7 @@
 													"font": "Arial;13;0",
 													"left": 192,
 													"top": 16,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -4695,9 +4700,9 @@
 												"$ref": "AAAAAAGAzPjEh4fs77o="
 											},
 											"font": "Arial;13;0",
-											"left": 255.516845703125,
+											"left": 255.142333984375,
 											"top": 255,
-											"width": 85.96630859375,
+											"width": 86.71533203125,
 											"height": 13,
 											"alpha": -4.248741942812618,
 											"distance": 15.652475842498529,
@@ -6332,7 +6337,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -6423,7 +6429,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -6431,7 +6438,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGAzPdbLHxDsW4="
 					},
-					"name": "Role4"
+					"name": "Role4",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -6439,7 +6447,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGAzPdbLHxDsW4="
 					},
-					"name": "Role5"
+					"name": "Role5",
+					"type": ""
 				}
 			]
 		},
@@ -6559,7 +6568,7 @@
 													"top": 310,
 													"width": 99.67724609375,
 													"height": 13,
-													"text": ": 구매자"
+													"text": ": Buyer"
 												},
 												{
 													"_type": "LabelView",
@@ -6571,7 +6580,7 @@
 													"font": "Arial;13;0",
 													"left": 272,
 													"top": 142,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -6673,7 +6682,7 @@
 													"font": "Arial;13;0",
 													"left": 336,
 													"top": 48,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -6774,7 +6783,7 @@
 													"font": "Arial;13;0",
 													"left": 480,
 													"top": 64,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -6875,7 +6884,7 @@
 													"font": "Arial;13;0",
 													"left": 832,
 													"top": -128,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -8204,9 +8213,9 @@
 												"$ref": "AAAAAAGAzP1eLCatcUo="
 											},
 											"font": "Arial;13;0",
-											"left": 536.48095703125,
+											"left": 535.106689453125,
 											"top": 272,
-											"width": 104.0380859375,
+											"width": 106.78662109375,
 											"height": 13,
 											"alpha": 1.5707955575641275,
 											"distance": 13,
@@ -8523,9 +8532,9 @@
 												"$ref": "AAAAAAGAzP1x6SkkySQ="
 											},
 											"font": "Arial;13;0",
-											"left": 734.619140625,
+											"left": 732.730712890625,
 											"top": 272,
-											"width": 91.76171875,
+											"width": 95.53857421875,
 											"height": 13,
 											"alpha": 1.5707955575641275,
 											"distance": 13,
@@ -8823,7 +8832,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -8887,7 +8897,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -8895,7 +8906,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGAzPwV3RcwXbc="
 					},
-					"name": "Role4"
+					"name": "Role4",
+					"type": ""
 				}
 			]
 		},
@@ -9015,7 +9027,7 @@
 													"top": 390,
 													"width": 99.67724609375,
 													"height": 13,
-													"text": ": 구매자"
+													"text": ": Buyer"
 												},
 												{
 													"_type": "LabelView",
@@ -9027,7 +9039,7 @@
 													"font": "Arial;13;0",
 													"left": 678,
 													"top": 264,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -9129,7 +9141,7 @@
 													"font": "Arial;13;0",
 													"left": 752,
 													"top": 288,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -9230,7 +9242,7 @@
 													"font": "Arial;13;0",
 													"left": 768,
 													"top": 304,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -9331,7 +9343,7 @@
 													"font": "Arial;13;0",
 													"left": 864,
 													"top": 304,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -9432,7 +9444,7 @@
 													"font": "Arial;13;0",
 													"left": 784,
 													"top": 400,
-													"width": 106.20263671875,
+													"width": 110.24609375,
 													"height": 13,
 													"text": "(from Interaction1)"
 												},
@@ -11635,9 +11647,9 @@
 												"$ref": "AAAAAAGAzQCTLXbqpEE="
 											},
 											"font": "Arial;13;0",
-											"left": 803.33642578125,
+											"left": 803.092041015625,
 											"top": 352,
-											"width": 116.3271484375,
+											"width": 116.81591796875,
 											"height": 13,
 											"alpha": 1.4940236708192811,
 											"distance": 13.038404810405298,
@@ -11964,7 +11976,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -12082,7 +12095,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -12090,7 +12104,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGAzP+jjGS7Rew="
 					},
-					"name": "Role4"
+					"name": "Role4",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -12098,7 +12113,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGAzP+jjGS7Rew="
 					},
-					"name": "Role5"
+					"name": "Role5",
+					"type": ""
 				}
 			]
 		}
