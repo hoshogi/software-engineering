@@ -22,7 +22,7 @@
 ![BuyItem Communication diagram](https://user-images.githubusercontent.com/96877973/168754735-a8bd8d0c-257d-4300-9cc0-5aee968ec291.PNG)
 
 ## Buy Item Check
-![BuyItemCheck Communication diagram](https://user-images.githubusercontent.com/96877973/168754742-6d51429d-bd5e-475f-b560-87e0fdbd7545.PNG)
+![BuyItemCheck Communication diagram](https://user-images.githubusercontent.com/96877973/170880695-6b3e9d3a-96cc-4663-8ca8-e87492e2eb89.PNG)
 
 ## Rate Item
 ![RateItem Communication diagram](https://user-images.githubusercontent.com/96877973/168754749-2b1317e7-a614-41b6-8b45-1aca4feee47e.PNG)

@@ -2758,13 +2758,13 @@
 												"$ref": "AAAAAAGAzPOEzOfm3Kw="
 											},
 											"font": "Arial;13;0",
-											"left": 925.477783203125,
+											"left": 916.451416015625,
 											"top": 282.5,
-											"width": 78.04443359375,
+											"width": 96.09716796875,
 											"height": 13,
 											"alpha": 0.16514865284460586,
 											"distance": 66.91038783328041,
-											"text": "4 : *getItem()"
+											"text": "4 : *getIteminfo()"
 										},
 										{
 											"_type": "NodeLabelView",
@@ -2882,7 +2882,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGAzO2YGLPvB+c="
 							},
-							"name": "*getItem()",
+							"name": "*getIteminfo()",
 							"source": {
 								"$ref": "AAAAAAGAzPB/bLQ4gaw="
 							},
