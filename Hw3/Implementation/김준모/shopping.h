@@ -1,16 +1,9 @@
 #include <iostream>
 #include <string>
+#include <list>
+
 using namespace std;
 
-
-typedef struct {
-	string sellerName;
-	string itemName;
-	string companyName;
-	int price;
-	int numberOfItem;
-	float rating;
-} ItemInfo;
 
 typedef struct {
 	string sellerName;
@@ -37,9 +30,29 @@ private:
 
 public:
 	void addNewItem();
-	ItemInfo getItemInfo(string itemName);
+	Item getItemInfo(string itemName);
 	void buyItem(string itemName);
 	RatingInfo saveRate(int rating);
+	string getSellerName();
+	string getItemName();
+	string getCompanyName();
+	int getPrice();
+	int getNumberOfItem();
+	double getRating();
+};
+
+
+// Class : ItemList
+// Description : list that contiains items
+// Created : 2022/5/31 20:15 pm
+// Author : ±èÁØ¸ð
+// mail : a00700c@g.hongik.ac.kr
+class ItemList
+{
+private:
+	list<Item> items;
+public:
+	Item searchList(string itemName);
 };
 
 
@@ -68,7 +81,7 @@ public:
 class SearchItemUI
 {
 public:
-	void searchItemByName(string itemName);
+	void searchItemByName();
 };
 
 
@@ -80,7 +93,7 @@ public:
 class SearchItem
 {
 public:
-	ItemInfo showItemInfo(string itemName);
+	Item showItemInfo(string itemName);
 };
 
 
@@ -92,7 +105,7 @@ public:
 class BuyItemUI
 {
 public:
-	void buyItem(string itemName);
+	void buyItem();
 };
 
 
@@ -105,4 +118,28 @@ class BuyItem
 {
 public:
 	void buyItem(string itemName);
+};
+
+
+// Class : BuyItemCheckUI
+// Description : boundary class when user views buyitemlist
+// Created : 2022/5/31 21:53 pm
+// Author : ±èÁØ¸ð
+// mail : a00700c@g.hongik.ac.kr
+class BuyItemCheckUI
+{
+public:
+	void checkBuyItemList();
+};
+
+
+// Class : RateItemUI
+// Description : boundary class when user rates item
+// Created : 2022/5/31 21:55 pm
+// Author : ±èÁØ¸ð
+// mail : a00700c@g.hongik.ac.kr
+class RateItemUI
+{
+public:
+	void rateItem();
 };

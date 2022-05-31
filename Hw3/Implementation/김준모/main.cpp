@@ -158,15 +158,9 @@ void registerItem()
 
 void search()
 {
+	SearchItemUI siui;
 
-	char itemName[MAX_STRING];
-
-	fscanf(in_fp, "%s", itemName);
-
-
-
-	fprintf(out_fp, "4.1. 상품 정보 검색\n");
-	fprintf(out_fp, "%s\n", itemName);
+	siui.searchItemByName();
 }
 
 void buy()
@@ -186,4 +180,44 @@ void rate()
 void program_exit()
 {
 	fprintf(out_fp, "6.1. 종료\n");
+}
+
+
+// 함수 정의부분
+
+// Function : void searchItemByName()
+// Description : boundaryclass's function to get input and show output when search
+// Created : 2022/5/31 20:41 pm
+// Author : 김준모
+void SearchItemUI::searchItemByName()
+{
+	char itemName[MAX_STRING];
+	fscanf(in_fp, "%s", itemName);
+
+	SearchItem si;
+	Item item;
+
+	item = si.showItemInfo(itemName);
+	
+	string sellerName = item.getSellerName();
+	string itemName = item.getItemName();
+	string companyName = item.getCompanyName();
+	int price = item.getPrice();
+	int numberOfItem = item.getNumberOfItem();
+	double rating = item.getRating();
+
+
+	fprintf(out_fp, "4.1. 상품 정보 검색\n");
+	fprintf(out_fp, "%s %s %s %d %d %f\n", sellerName, itemName, companyName, price, numberOfItem, rating);
+}
+
+
+// Function : void searchItemByName()
+// Description : boundaryclass's function to get input and show output when buy
+// Created : 2022/5/31 21:10 pm
+// Author : 김준모
+void BuyItemUI::buyItem()
+{
+	fprintf(out_fp, "4.2. 상품 구매\n");
+	fprintf(out_fp, "%s %s\n");
 }
