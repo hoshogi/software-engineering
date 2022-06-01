@@ -1,4 +1,4 @@
-#include "Member.h"
+#include "Shopping.h"
 
 // Function : Member(string name, string residentNumber, string id, string password)
 // Description : Member Constructor
@@ -6,6 +6,7 @@
 // Created : 2022/6/1 9:48 pm
 // Author : Hoseok Lee
 Member::Member(string name, string residentNumber, string id, string password) : name(name), residentNumber(residentNumber), id(id), password(password) {
+    buyItemList = new BuyItemList();
 }
 
 // Function : Member::getId()
