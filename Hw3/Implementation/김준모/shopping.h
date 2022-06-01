@@ -1,145 +1,181 @@
-#include <iostream>
+#pragma once
 #include <string>
-#include <list>
-
 using namespace std;
 
+// Class : BuyItemList
+// Description : list contains item
+// Created : 2022/6/1 23:07 pm
+// Author : ±èÁØ¸ð
+// mail : a00700c@g.hongik.ac.kr
+class BuyItemList {
+private:
+    string buyItemNames[50];
+    int numberOfBuyItem;
+public:
+    BuyItemList();
+    void addBuyItemList(string itemName);
+    string* getBuyItemList();
+};
 
-typedef struct {
-	string sellerName;
-	string itemName;
-	float averageRating;
-} RatingInfo;
+// Class : Member
+// Description : store member info
+// Created : 2022/6/1 9:42 pm
+// Author : Hoseok Lee
+// mail : hoshogi@gmail.com
+class Member {
+private:
+    string name;
+    string residentNumber;
+    string id;
+    string password;
+    BuyItemList* buyItemList;
 
+public:
+    Member(string name, string residentNumber, string id, string password);
+    string getId();
+    string getPassword();
+    string getName();
+    BuyItemList* getBuyItemList();
+};
+
+// Class : MemberList
+// Description : mamge member list
+// Created : 2022/6/1 9:56 pm
+// Author : Hoseok Lee
+// mail : hoshogi@gmail.com
+class MemberList {
+private:
+    Member* memberList[50];
+    int numberOfMembers;
+    int nowLoginMemberIndex;
+
+public:
+    MemberList();
+    void addNewMember(string name, string residentNumber, string id, string password);
+    void deleteMember();
+    void setNowLoginMemberIndexMinusOne();
+    bool checkMemberInfo(string id, string password);
+    string getNowLoginMemberName();
+    BuyItemList* getNowLoginBuyList();
+};
 
 // Class : Item
 // Description : item class
-// Created : 2022/5/29 00:23 am
+// Created : 2022/6/1 21:36 pm
 // Author : ±èÁØ¸ð
 // mail : a00700c@g.hongik.ac.kr
 class Item
 {
 private:
-	string sellerName;
-	string itemName;
-	string companyName;
-	int price;
-	int numbuerOfItem;
-	int rating = 0;
-	int ratingNumberCount = 0;
-
+    string sellerName;
+    string itemName;
+    string companyName;
+    int price;
+    int numberOfItem;
+    int totalRating = 0;
+    int numberOfRating = 0;
 public:
-	void addNewItem();
-	Item getItemInfo(string itemName);
-	void buyItem(string itemName);
-	RatingInfo saveRate(int rating);
-	string getSellerName();
-	string getItemName();
-	string getCompanyName();
-	int getPrice();
-	int getNumberOfItem();
-	double getRating();
+    Item(string sellerName, string itemName, string companyName, int price, int numberOfItem);
+    string getSellerName();
+    string getItemName();
+    string getCompanyName();
+    int getPrice();
+    int getNumberOfItem();
+    int getRating();
+    void buyItem();
+    void rateItem(int myRating);
 };
-
 
 // Class : ItemList
-// Description : list that contiains items
-// Created : 2022/5/31 20:15 pm
+// Description : list contains item
+// Created : 2022/6/1 23:07 pm
 // Author : ±èÁØ¸ð
 // mail : a00700c@g.hongik.ac.kr
-class ItemList
-{
+class ItemList {
 private:
-	list<Item> items;
+    Item* itemList[50];
+    int nowSearchItemIndex;
+    int numberOfItem;
 public:
-	Item searchList(string itemName);
+    ItemList();
+    Item* searchItem(string itemName);
+    Item* rateItem(string itemName, int myRating);
+    Item* buyItem();
+    void addNewItem(string sellerName, string itemName, string companyName, int price, int numberOfItem);
 };
 
-
-// Class : BuyItemList
-// Description : list that saves buy item names
-// Created : 2022/5/29 02:23 am
-// Author : ±èÁØ¸ð
-// mail : a00700c@g.hongik.ac.kr
-class BuyItemList
-{
-private:
-	string buyItemNames[50] = {"",};
+class SignUp {
 public:
-	BuyItemList();
-	void addBuyItemList(string itemName);
-	int* getBuyItemList();
-	~BuyItemList();
-}; 
-
-
-// Class : SearchItemUI
-// Description : boundary class when user searches item
-// Created : 2022/5/30 00:00 am
-// Author : ±èÁØ¸ð
-// mail : a00700c@g.hongik.ac.kr
-class SearchItemUI
-{
-public:
-	void searchItemByName();
+    SignUp();
+    void addNewMember(string name, string residentNumber, string id, string password);
 };
 
+class SignUpUI {
+public:
+    void createNewMember(SignUp* signUp);
+};
 
 // Class : SearchItem
-// Description : control class that searches item
-// Created : 2022/5/30 00:01 am
+// Description : control class for search item
+// Created : 2022/6/2 01:53 am
 // Author : ±èÁØ¸ð
 // mail : a00700c@g.hongik.ac.kr
-class SearchItem
-{
+class SearchItem {
 public:
-	Item showItemInfo(string itemName);
+    SearchItem();
+    Item* showItemInfo(string itemName);
 };
 
-
-// Class : BuyItemUI
-// Description : boundary class when user buys item
-// Created : 2022/5/30 00:03 am
+// Class : SearchItemUI
+// Description : boundary class for search item
+// Created : 2022/6/2 01:50 am
 // Author : ±èÁØ¸ð
 // mail : a00700c@g.hongik.ac.kr
-class BuyItemUI
-{
+class SearchItemUI {
 public:
-	void buyItem();
+    void searchItemByName(SearchItem* searchItem);
 };
 
 
 // Class : BuyItem
-// Description : control class that buys item
-// Created : 2022/5/30 00:07 am
+// Description : control class for buy item
+// Created : 2022/6/2 02:42 am
 // Author : ±èÁØ¸ð
 // mail : a00700c@g.hongik.ac.kr
-class BuyItem
-{
+class BuyItem {
 public:
-	void buyItem(string itemName);
+    BuyItem();
+    Item* buyItem();
+};
+
+// Class : SearchItemUI
+// Description : boundary class for buy item
+// Created : 2022/6/2 02:41 am
+// Author : ±èÁØ¸ð
+// mail : a00700c@g.hongik.ac.kr
+class BuyItemUI {
+public:
+    void buyItem(BuyItem* buyItem);
+};
+
+// Class : BuyItemCheck
+// Description : control class for buy item check
+// Created : 2022/6/2 03:17 am
+// Author : ±èÁØ¸ð
+// mail : a00700c@g.hongik.ac.kr
+class BuyItemCheck {
+public:
+    BuyItemCheck();
+    string* showBuyItemList();
 };
 
 
 // Class : BuyItemCheckUI
-// Description : boundary class when user views buyitemlist
-// Created : 2022/5/31 21:53 pm
+// Description : boundary class for buy item check
+// Created : 2022/6/2 03:19 am
 // Author : ±èÁØ¸ð
 // mail : a00700c@g.hongik.ac.kr
-class BuyItemCheckUI
-{
+class BuyItemCheckUI {
 public:
-	void checkBuyItemList();
-};
-
-
-// Class : RateItemUI
-// Description : boundary class when user rates item
-// Created : 2022/5/31 21:55 pm
-// Author : ±èÁØ¸ð
-// mail : a00700c@g.hongik.ac.kr
-class RateItemUI
-{
-public:
-	void rateItem();
+    void checkBuyItemList(BuyItemCheck* buyItemCheck);
 };

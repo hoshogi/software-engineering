@@ -1,9 +1,0 @@
-Item 클래스 : string sellerName, float rating 추가해야함, getItem은 getItemInfo 로 대체 가능
-
-회원 가입, 회원 탈퇴 시 buyItemList를 생성, 소멸해줘야함
-
-구조체로 선언하기, rating 참여 인원 count
-
-BuyItemList 클래스 : buyItemNames로 이름 변경, getBuyItemList 리턴타입 포인터(배열리턴)
-
-itemList를 c++ standard library 인 list로 만들어서 검색 및 등록

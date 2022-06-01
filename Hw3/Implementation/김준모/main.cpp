@@ -1,13 +1,16 @@
-#define _CRT_SECURE_NO_WARNINGS
+ï»¿// í—¤ë” ì„ ì–¸
+#include <iostream>
+#include <string>
+#include <fstream>
+#include "Shopping.h"
+using namespace std;
 
-#include <stdio.h>
-#include <string.h>
-#include "shopping.h"
-
+// ìƒìˆ˜ ì„ ì–¸
 #define MAX_STRING 32
 #define INPUT_FILE_NAME "input.txt"
 #define OUTPUT_FILE_NAME "output.txt"
 
+// í•¨ìˆ˜ ì„ ì–¸
 void doTask();
 void join();
 void withdraw();
@@ -20,204 +23,215 @@ void checkBuyList();
 void rate();
 void program_exit();
 
-FILE* in_fp, * out_fp;
+// ë³€ìˆ˜ ì„ ì–¸
+ifstream fin;
+ofstream fout;
+MemberList* memberList;
+ItemList* itemList;
 
-int main()
-{
-	// ÆÄÀÏ ÀÔÃâ·ÂÀ» À§ÇÑ ÃÊ±âÈ­
-	in_fp = fopen(INPUT_FILE_NAME, "r+");
-	out_fp = fopen(OUTPUT_FILE_NAME, "w+");
+
+// í•¨ìˆ˜ ì„ ì–¸
+void SignUpUI::createNewMember(SignUp* signUp) {
+	string name, residentNumber, id, password;
+
+	fin >> name >> residentNumber >> id >> password;
+	signUp->addNewMember(name, residentNumber, id, password);
+	fout << "1.1. íšŒì›ê°€ì…" << endl;
+	fout << name << ' ' << residentNumber << ' ' << id << ' ' << password << ' ' << endl << endl;
+}
+
+// Function : SearchItem::showItemInfo(string itemName)
+// Description : searchItem from itemlist and returns item
+// Parameters : itemName
+// Return Value : Item pointer
+// Created : 2022/6/2 02:14 am
+// Author : ê¹€ì¤€ëª¨
+Item* SearchItem::showItemInfo(string itemName) {
+	Item* item = itemList->searchItem(itemName);
+	return item;
+}
+
+// Function : SearchItemUI::searchItemByName()
+// Description : input and output when search item
+// Parameters : searchItem pointer
+// Created : 2022/6/2 02:25 am
+// Author : ê¹€ì¤€ëª¨
+void SearchItemUI::searchItemByName(SearchItem* searchItem) {
+	string itemName;
+	fin >> itemName;
+	Item* item = searchItem->showItemInfo(itemName);
+	fout << "4.1. ìƒí’ˆ ì •ë³´ ê²€ìƒ‰" << endl;
+	fout << "> " << item->getSellerName() << ' ' << item->getItemName() << ' ' << item->getCompanyName() << ' ' << item->getPrice() << ' ' << item->getNumberOfItem() << ' ' << item->getRating() << endl << endl;
+}
+
+// Function : BuyItem::buyItem()
+// Description : buyItem from itemlist and returns item
+// Return Value : Item pointer
+// Created : 2022/6/2 03:15 am
+// Author : ê¹€ì¤€ëª¨
+Item* BuyItem::buyItem() {
+	Item* item = itemList->buyItem();
+	BuyItemList* nowBuyItemList = memberList->getNowLoginBuyList();
+	nowBuyItemList->addBuyItemList(item->getItemName());
+	return item;
+}
+
+// Function : BuyItemUI::buyItem()
+// Description : input and output when buy item
+// Parameters : buyItem pointer
+// Created : 2022/6/2 03:14 am
+// Author : ê¹€ì¤€ëª¨
+// ì‘ì—…ì¤‘
+void BuyItemUI::buyItem(BuyItem* buyItem) {
+	Item* item = buyItem->buyItem();
+	fout << "4.2. ìƒí’ˆ êµ¬ë§¤" << endl;
+	fout << "> " << item->getSellerName() << ' ' << item->getItemName() << endl <<  endl;
+}
+
+string* BuyItemCheck::showBuyItemList() {
+
+}
+
+// Function : BuyItemCheckUI::checkBuyItemList()
+// Description : input and output when buy item check
+// Parameters : buyItemCheck pointer
+// Created : 2022/6/2 03:27 am
+// Author : ê¹€ì¤€ëª¨
+// ì‘ì—…ì¤‘
+void BuyItemCheckUI::checkBuyItemList(BuyItemCheck* buyItemCheck) {
+	fout << "4.3. ìƒí’ˆ êµ¬ë§¤ ë‚´ì—­ ì¡°íšŒ" << endl;
+	string* nowBuyItemList = buyItemCheck->showBuyItemList();
+	for (int i = 0; nowBuyItemList[i] != ""; i++) {
+		nowBuyItemList[i].
+		fout << endl << endl;
+	}
+}
+
+int main() {
+	// íŒŒì¼ ì…ì¶œë ¥ì„ ìœ„í•œ ì´ˆê¸°í™”
+	fin.open("input.txt");
+	fout.open("output.txt");
+
+	memberList = new MemberList();
+	itemList = new ItemList();
 
 	doTask();
+
+	// ...
 
 	return 0;
 }
 
-void doTask()
-{
-	// ¸Ş´º ÆÄ½ÌÀ» À§ÇÑ level ±¸ºĞÀ» À§ÇÑ º¯¼ö
+void doTask() {
+	// ë©”ë‰´ íŒŒì‹±ì„ ìœ„í•œ level êµ¬ë¶„ì„ ìœ„í•œ ë³€ìˆ˜
 	int menu_level_1 = 0, menu_level_2 = 0;
 	int is_program_exit = 0;
 
-	while (!is_program_exit)
-	{
-		// ÀÔ·Â ÆÄÀÏ¿¡¼­ ¸Ş´º ¼ıÀÚ 2°³¸¦ ÀĞ±â
-		fscanf(in_fp, "%d %d ", &menu_level_1, &menu_level_2);
+	while (!is_program_exit) {
+		// ì…ë ¥íŒŒì¼ì—ì„œ ë©”ë‰´ ìˆ«ì 2ê°œë¥¼ ì½ê¸°
+		fin >> menu_level_1 >> menu_level_2;
 
-		// ¸Ş´º ±¸ºĞ ¹× ÇØ´ç ¿¬»ê ¼öÇà
-		switch (menu_level_1)
-		{
+
+		// ë©”ë‰´ êµ¬ë¶„ ë° í•´ë‹¹ ì—°ì‚° ìˆ˜í–‰
+		switch (menu_level_1) {
 		case 1:
-		{
-			switch (menu_level_2)
-			{
-			case 1: // "1.1. È¸¿ø°¡ÀÔ" ¸Ş´º ºÎºĞ
-			{
-				// join() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
+			switch (menu_level_2) {
+			case 1:   // "1.1. íšŒì›ê°€ì…â€œ ë©”ë‰´ ë¶€ë¶„
 				join();
-
 				break;
-			}
 			case 2:
-			{
-				withdraw();
-
+				// withdraw();
 				break;
+
 			}
-			}
-		}
+			break;
 		case 2:
-		{
-			switch (menu_level_2)
-			{
+			switch (menu_level_2) {
 			case 1:
-			{
-				login();
-
+				// login();
 				break;
-			}
 			case 2:
-			{
-				logout();
-
+				// logout();
 				break;
 			}
-			}
-		}
+			break;
 		case 3:
-		{
-			switch (menu_level_2)
-			{
+			switch (menu_level_2) {
 			case 1:
-			{
-				registerItem();
-
+				// registerItem();
 				break;
 			}
-			}
-		}
-
+			break;
 		case 4:
-		{
-			switch (menu_level_2)
-			{
+			switch (menu_level_2) {
 			case 1:
-			{
 				search();
-
 				break;
-			}
 			case 2:
-			{
 				buy();
-
 				break;
-			}
 			case 3:
-			{
 				checkBuyList();
-
 				break;
 			}
-			case 4:
-			{
-				rate();
-
-				break;
-			}
-			}
-		}
+			break;
 		case 6:
-		{
-			switch (menu_level_2)
-			{
-			case 1:
-			{
-				program_exit();
+			switch (menu_level_2) {
+			case 1:   // "6.1. ì¢…ë£Œâ€œ ë©”ë‰´ ë¶€ë¶„
+
+				// ..
+				// program_exit();
 				is_program_exit = 1;
 				break;
+
+				// .......
 			}
-			}
-		}
+			return;
 		}
 	}
 }
 
-void join()
-{}
-void withdraw()
-{}
-void login()
-{}
-void logout()
-{}
-void registerItem()
-{}
-
-
-
-void search()
-{
-	SearchItemUI siui;
-
-	siui.searchItemByName();
+void SignUp::addNewMember(string name, string residentNumber, string id, string password) {
+	memberList->addNewMember(name, residentNumber, id, password);
 }
 
-void buy()
-{
-
-}
-void checkBuyList()
-{
-
-}
-void rate()
-{
-
-}
-
-
-void program_exit()
-{
-	fprintf(out_fp, "6.1. Á¾·á\n");
-}
-
-
-// ÇÔ¼ö Á¤ÀÇºÎºĞ
-
-// Function : void searchItemByName()
-// Description : boundaryclass's function to get input and show output when search
-// Created : 2022/5/31 20:41 pm
-// Author : ±èÁØ¸ğ
-void SearchItemUI::searchItemByName()
-{
-	char itemName[MAX_STRING];
-	fscanf(in_fp, "%s", itemName);
-
-	SearchItem si;
-	Item item;
-
-	item = si.showItemInfo(itemName);
+void join() {
+	SignUp signUp;
 	
-	string sellerName = item.getSellerName();
-	string itemName = item.getItemName();
-	string companyName = item.getCompanyName();
-	int price = item.getPrice();
-	int numberOfItem = item.getNumberOfItem();
-	double rating = item.getRating();
+}
 
+void search() {
+	SearchItem searchItem;
+}
 
-	fprintf(out_fp, "4.1. »óÇ° Á¤º¸ °Ë»ö\n");
-	fprintf(out_fp, "%s %s %s %d %d %f\n", sellerName, itemName, companyName, price, numberOfItem, rating);
+void buy() {
+	BuyItem buyitem;
+}
+
+void checkBuyList() {
+	BuyItemCheck buyItemCheck;
 }
 
 
-// Function : void searchItemByName()
-// Description : boundaryclass's function to get input and show output when buy
-// Created : 2022/5/31 21:10 pm
-// Author : ±èÁØ¸ğ
-void BuyItemUI::buyItem()
-{
-	fprintf(out_fp, "4.2. »óÇ° ±¸¸Å\n");
-	fprintf(out_fp, "%s %s\n");
-}
+//void example() {
+//	char user_type[MAX_STRING], name[MAX_STRING], SSN [MAX_STRING],
+//		address[MAX_STRING], ID[MAX_STRING], password[MAX_STRING];
+//
+//	// ì…ë ¥ í˜•ì‹ : ì´ë¦„, ì£¼ë¯¼ë²ˆí˜¸, ID, Passwordë¥¼ íŒŒì¼ë¡œë¶€í„° ì½ìŒ
+//	fscanf(in_fp, "%s %s %s %s", name, SSN, ID, password);
+//
+//	// í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰  
+//	// ...
+//
+//		// ì¶œë ¥ í˜•ì‹
+//	fprintf(out_fp, "1.1. íšŒì›ê°€ì…\n");
+//	fprintf(out_fp, "%s %s %s %s\n", name, SSN, ID, password);
+//
+//
+//}
+
+//void program_exit() {
+//	fin.close();
+//	fout.close();
+//	// ....
+//}
