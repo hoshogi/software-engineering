@@ -70,8 +70,12 @@ int Item::getNumberOfItem() {
 // Author : ±èÁØ¸ð
 int Item::getRating() {
     int a;
-    a = round(totalRating/numberOfRating);
-    return a;
+    if (numberOfRating == 0)
+        return 0;
+    else {
+        a = round((double)totalRating / numberOfRating);
+        return a;
+    }
 }
 
 // Function : void Item::buyItem()

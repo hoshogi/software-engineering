@@ -252,6 +252,7 @@ void RateItemUI::rateItem(RateItem* rateItem) {
 	int myRating;
 	fin >> itemName >> myRating;
 	Item* item = rateItem->rateItem(itemName, myRating);
+	fout << "4.4. 상품 구매만족도 평가" << endl;
 	fout << "> " << item->getSellerId() << " " << item->getItemName() << " " << item->getRating() << endl << endl;
 }
 
@@ -276,7 +277,6 @@ void doTask() {
 	while (!is_program_exit) {
 		// 입력파일에서 메뉴 숫자 2개를 읽기
 		fin >> menu_level_1 >> menu_level_2;
-
 
 		// 메뉴 구분 및 해당 연산 수행
 		switch (menu_level_1) {
@@ -318,6 +318,8 @@ void doTask() {
 			case 3:
 				doCheckBuyList();
 				break;
+			case 4:
+				doRate();
 			}
 			break;
 		case 6:
@@ -369,6 +371,8 @@ void doRate() {
 }
 
 void program_exit() {
+	fout << "6.1. 종료" << endl;
+
 	fin.close();
 	fout.close();
 }

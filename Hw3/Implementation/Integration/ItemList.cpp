@@ -10,7 +10,6 @@ ItemList::ItemList() {
     numberOfItem = 0;
 }
 
-
 // Function : ItemList::searchItem(string itemName)
 // Description : searches item from itemlist and returns item
 // Return Value : Item
@@ -62,5 +61,5 @@ Item* ItemList::buyItem() {
 // Created : 2022/6/1 23:13 pm
 // Author : ±èÁØ¸ð
 void ItemList::addNewItem(string sellerId, string itemName, string companyName, int price, int numberOfItem) {
-    itemList[numberOfItem++] = new Item(sellerId, itemName, companyName, price, numberOfItem);
+    itemList[(this->numberOfItem)++] = new Item(sellerId, itemName, companyName, price, numberOfItem);
 }
