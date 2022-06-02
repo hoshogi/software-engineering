@@ -21,12 +21,14 @@ void MemberList::addNewMember(string name, string residentNumber, string id, str
 
 // Function : deleteMember()
 // Description : deallocate member
-// Return Value : void
+// Return Value : int
 // Created : 2022/6/1 10:17pm
 // Author : Hoseok Lee
-void MemberList::deleteMember() {
+int MemberList::deleteMember() {
+    int temp = nowLoginMemberIndex;
     delete memberList[nowLoginMemberIndex];
     nowLoginMemberIndex = -1;
+    return temp;
 }
 
 // Function : checkMemberInfo()
@@ -50,11 +52,13 @@ bool MemberList::checkMemberInfo(string id, string password) {
 
 // Function : setNowLoginMemberIndex()
 // Description : set now login member index
-// Return Value : bool
+// Return Value : string
 // Created : 2022/6/1 10:21pm
 // Author : Hoseok Lee
-void MemberList::setNowLoginMemberIndexMinusOne() {
+string MemberList::setNowLoginMemberIndexMinusOne() {
+    string id = memberList[nowLoginMemberIndex]->getId();
     nowLoginMemberIndex = -1;
+    return id;
 }
 
 // Function : getNowLoginMemberName()

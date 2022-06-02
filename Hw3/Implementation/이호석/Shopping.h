@@ -51,8 +51,8 @@ private:
 public:
     MemberList();
     void addNewMember(string name, string residentNumber, string id, string password);
-    void deleteMember();
-    void setNowLoginMemberIndexMinusOne();
+    int deleteMember();
+    string setNowLoginMemberIndexMinusOne();
     bool checkMemberInfo(string id, string password);
     string getNowLoginMemberName();
 };
@@ -102,13 +102,86 @@ public:
     void addNewItem(string sellerName, string itemName, string companyName, int price, int numberOfItem);
 };
 
+// Class : SignUp
+// Description : SignUp control class
+// Created : 2022/6/2 1:22 pm
+// Author : Hoseok Lee
+// mail : hoshogi@gmail.com
 class SignUp {
 public:
     SignUp();
     void addNewMember(string name, string residentNumber, string id, string password);
 };
 
+// Class : SignUpUI
+// Description : SignUpUI boundary class
+// Created : 2022/6/2 1:22 pm
+// Author : Hoseok Lee
+// mail : hoshogi@gmail.com
 class SignUpUI {
 public:
     void createNewMember(SignUp* signUp);
+};
+
+// Class : Withdraw
+// Description : Withdraw control class
+// Created : 2022/6/2 2:21 pm
+// Author : Hoseok Lee
+// mail : hoshogi@gmail.com
+class Withdraw {
+public:
+    Withdraw();
+    int deleteMember();
+};
+
+// Class : WithdrawUI
+// Description : WithdrawUI boundary class
+// Created : 2022/6/2 2:22 pm
+// Author : Hoseok Lee
+// mail : hoshogi@gmail.com
+class WithdrawUI {
+public:
+    void withdrawMember(Withdraw* withdraw);
+};
+
+// Class : Login
+// Description : Login control class
+// Created : 2022/6/2 2:55 pm
+// Author : Hoseok Lee
+// mail : hoshogi@gmail.com
+class Login {
+public:
+    Login();
+    bool checkMemberInfo(string id, string password);
+};
+
+// Class : LoginUI
+// Description : LoginUI boundary class
+// Created : 2022/6/2 2:55 pm
+// Author : Hoseok Lee
+// mail : hoshogi@gmail.com
+class LoginUI {
+public:
+    void loginMember(Login* login);
+};
+
+// Class : Logout
+// Description : Logout control class
+// Created : 2022/6/2 2:55 pm
+// Author : Hoseok Lee
+// mail : hoshogi@gmail.com
+class Logout {
+public:
+    Logout();
+    string logoutMember();
+};
+
+// Class : LogoutUI
+// Description : LogoutUI boundary class
+// Created : 2022/6/2 3:01 pm
+// Author : Hoseok Lee
+// mail : hoshogi@gmail.com
+class LogoutUI {
+public:
+    void logoutMember(Logout* logout);
 };
