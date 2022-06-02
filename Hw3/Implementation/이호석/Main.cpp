@@ -58,8 +58,8 @@ void SignUp::addNewMember(string name, string residentNumber, string id, string 
 // Created : 2022/6/2 2:25 pm
 // Author : Hoseok Lee
 void WithdrawUI::withdrawMember(Withdraw* withdraw) {
-	int id = withdraw->deleteMember();
-	fout << "1.2 회원탈퇴" << endl;
+	string id = withdraw->deleteMember();
+	fout << "1.2. 회원탈퇴" << endl;
 	fout << "> " << id << endl << endl;
 }
 
@@ -68,7 +68,7 @@ void WithdrawUI::withdrawMember(Withdraw* withdraw) {
 // Return Value : int
 // Created : 2022/6/2 2:26 pm
 // Author : Hoseok Lee
-int Withdraw::deleteMember() {
+string Withdraw::deleteMember() {
 	return memberList->deleteMember();
 }
 
@@ -80,9 +80,9 @@ int Withdraw::deleteMember() {
 void LoginUI::loginMember(Login* login) {
 	string id, password;
 	fin >> id >> password;
-	fout << "2.1 로그인" << endl;
+	fout << "2.1. 로그인" << endl;
 	if (login->checkMemberInfo(id, password))
-		fout << "> " << id << password << endl << endl;
+		fout << "> " << id << ' ' << password << endl << endl;
 	else
 		fout << "Wrong id or password" << endl << endl;
 }
@@ -103,7 +103,7 @@ bool Login::checkMemberInfo(string id, string password) {
 // Author : Hoseok Lee
 void LogoutUI::logoutMember(Logout* logout) {
 	string id = logout->logoutMember();
-	fout << "2.2 로그아웃" << endl;
+	fout << "2.2. 로그아웃" << endl;
 	fout << id << endl << endl;
 }
 
@@ -116,6 +116,35 @@ string Logout::logoutMember() {
 	return memberList->setNowLoginMemberIndexMinusOne();
 }
 
+// Function : RegisterItemUI::registerNewItem(RegisterItem* registerItem)
+// Description : read and write item's info
+// Return Value : void
+// Created : 2022/6/2 6:09 pm
+// Author : Hoseok Lee
+void RegisterItemUI::registerNewItem(RegisterItem* registerItem) {
+	int numberOfItem, price;
+	string itemName, companyName;
+	fin >> itemName >> companyName >> price >> numberOfItem;
+	cout << 4 << endl;
+	registerItem->addNewItem(itemName, companyName, price, numberOfItem);
+	cout << 8 << endl;
+	fout << "3.1. 판매 의류 등록" << endl;
+	fout << itemName << ' ' << companyName << ' ' << price << ' ' << numberOfItem << endl << endl;
+}
+
+// Function : RegisterItem::addNewItem(string itemName, string companyName, int price, int numberOfItem)
+// Description : add new item
+// Return Value : void
+// Created : 2022/6/2 6:10 pm
+// Author : Hoseok Lee
+void RegisterItem::addNewItem(string itemName, string companyName, int price, int numberOfItem) {
+	cout << 5 << endl;
+	string sellerId = memberList->getNowLoginMemberId();
+	cout << 6 << endl;
+	itemList->addNewItem(sellerId, itemName, companyName, price, numberOfItem);
+	cout << 7 << endl;
+}
+
 int main() {
 	// 파일 입출력을 위한 초기화
 	fin.open("input.txt");
@@ -125,6 +154,7 @@ int main() {
 	itemList = new ItemList();
 
 	doTask();
+
 	return 0;
 }
 
@@ -213,7 +243,7 @@ void doLogout() {
 }
 
 void doRegisterItem() {
-
+	RegisterItem registerItem;
 }
 
 void program_exit() {

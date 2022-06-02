@@ -63,6 +63,6 @@ Item* ItemList::buyItem() {
 // Parameters : seller's name, item's name, company name, price, numberOfitem
 // Created : 2022/6/1 23:13 pm
 // Author : ±èÁØ¸ð
-void ItemList::addNewItem(string sellerName, string itemName, string companyName, int price, int numberOfItem) {
-    itemList[numberOfItem++] = new Item(sellerName, itemName, companyName, price, numberOfItem);
+void ItemList::addNewItem(string sellerId, string itemName, string companyName, int price, int numberOfItem) {
+    itemList[numberOfItem++] = new Item(sellerId, itemName, companyName, price, numberOfItem);
 }

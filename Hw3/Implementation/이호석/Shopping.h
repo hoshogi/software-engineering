@@ -51,10 +51,10 @@ private:
 public:
     MemberList();
     void addNewMember(string name, string residentNumber, string id, string password);
-    int deleteMember();
+    string deleteMember();
     string setNowLoginMemberIndexMinusOne();
     bool checkMemberInfo(string id, string password);
-    string getNowLoginMemberName();
+    string getNowLoginMemberId();
 };
 
 // Class : Item
@@ -65,7 +65,7 @@ public:
 class Item
 {
 private:
-    string sellerName;
+    string sellerId;
     string itemName;
     string companyName;
     int price;
@@ -74,7 +74,7 @@ private:
     int numberOfRating = 0;
 public:
     Item(string sellerName, string itemName, string companyName, int price, int numberOfItem);
-    string getSellerName();
+    string getSellerId();
     string getItemName();
     string getCompanyName();
     int getPrice();
@@ -99,7 +99,7 @@ public:
     Item* searchItem(string itemName);
     Item* rateItem(string itemName, int myRating);
     Item* buyItem();
-    void addNewItem(string sellerName, string itemName, string companyName, int price, int numberOfItem);
+    void addNewItem(string sellerId, string itemName, string companyName, int price, int numberOfItem);
 };
 
 // Class : SignUp
@@ -131,7 +131,7 @@ public:
 class Withdraw {
 public:
     Withdraw();
-    int deleteMember();
+    string deleteMember();
 };
 
 // Class : WithdrawUI
@@ -184,4 +184,25 @@ public:
 class LogoutUI {
 public:
     void logoutMember(Logout* logout);
+};
+
+// Class : RegisterItem
+// Description : RegisterItem control class
+// Created : 2022/6/2 4:00 pm
+// Author : Hoseok Lee
+// mail : hoshogi@gmail.com
+class RegisterItem {
+public:
+    RegisterItem();
+    void addNewItem(string itemName, string companyName, int price, int numberOfItem);
+};
+
+// Class : RegisterItemUI
+// Description : RegisterItemUI boundary class
+// Created : 2022/6/2 4:01 pm
+// Author : Hoseok Lee
+// mail : hoshogi@gmail.com
+class RegisterItemUI {
+public:
+    void registerNewItem(RegisterItem* registerItem);
 };
