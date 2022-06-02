@@ -34,6 +34,7 @@ ItemList* itemList;
 
 // 함수 선언
 
+
 // Function : compare(Item* prev, Item* next)
 // Description : a function uses when sorting
 // Parameters : two Item to compare
@@ -111,7 +112,8 @@ list<Item*> BuyItemCheck::getBuyItemList(string* nowBuyItemList) {
 	for (int i = 0; nowBuyItemList[i] != "" ; i++) {
 		buyItemList.push_back(itemList->searchItem(nowBuyItemList[i]));
 	}
-	sort(buyItemList.begin(), buyItemList.end(), compare);
+	buyItemList.sort(compare);
+	//sort(buyItemList.begin(), buyItemList.end(), compare);
 	return buyItemList;
 }
 

@@ -6,7 +6,7 @@ using namespace std;
 // Created : 2022/6/1 23:10 pm
 // Author : ±èÁØ¸ð
 ItemList::ItemList() {
-    fill_n(itemList, 50, NULL);
+    fill_n(itemList, 50, nullptr);
     nowSearchItemIndex = -1;
     numberOfItem = 0;
 }
@@ -52,10 +52,6 @@ Item* ItemList::rateItem(string itemName, int myRating) {
 // Author : ±èÁØ¸ð
 Item* ItemList::buyItem() {
     itemList[nowSearchItemIndex]->buyItem();
-    if (itemList[nowSearchItemIndex]->getNumberOfItem() == 0) {
-        delete itemList[nowSearchItemIndex];
-        return NULL;
-    }
     return itemList[nowSearchItemIndex];
 }
 

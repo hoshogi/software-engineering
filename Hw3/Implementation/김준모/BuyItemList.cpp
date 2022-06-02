@@ -1,5 +1,7 @@
 #include "Shopping.h"
 #include <string>
+#include <algorithm>
+
 using namespace std;
 
 // Function : BuyItemList()
