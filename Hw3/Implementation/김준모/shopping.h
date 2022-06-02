@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <list>
 using namespace std;
 
 // Class : BuyItemList
@@ -167,6 +168,7 @@ class BuyItemCheck {
 public:
     BuyItemCheck();
     string* showBuyItemList();
+    list<Item*> getBuyItemList(string* nowBuyItemList);
 };
 
 
@@ -178,4 +180,26 @@ public:
 class BuyItemCheckUI {
 public:
     void checkBuyItemList(BuyItemCheck* buyItemCheck);
+};
+
+
+// Class : RateItem
+// Description : control class for buy rate item
+// Created : 2022/6/2 17:34 am
+// Author : ±èÁØ¸ð
+// mail : a00700c@g.hongik.ac.kr
+class RateItem {
+public:
+    RateItem();
+    Item* rateItem(string itemName, int myRating);
+};
+
+// Class : RateItemUI
+// Description : boundary class for buy rate item
+// Created : 2022/6/2 17:33 am
+// Author : ±èÁØ¸ð
+// mail : a00700c@g.hongik.ac.kr
+class RateItemUI {
+public:
+    void rateItem(RateItem* rateItem);
 };

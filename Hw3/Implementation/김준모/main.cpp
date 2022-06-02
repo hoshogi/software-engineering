@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <list>
+#include <algorithm>
 #include "Shopping.h"
 using namespace std;
 
@@ -31,6 +33,17 @@ ItemList* itemList;
 
 
 // 함수 선언
+
+// Function : compare(Item* prev, Item* next)
+// Description : a function uses when sorting
+// Parameters : two Item to compare
+// Return value : bool
+// Created : 2022/6/2 17:09 pm
+// Author : 김준모
+bool compare(Item* prev, Item* next) {
+	return prev->getItemName() < next->getItemName();
+}
+
 void SignUpUI::createNewMember(SignUp* signUp) {
 	string name, residentNumber, id, password;
 
@@ -81,15 +94,36 @@ Item* BuyItem::buyItem() {
 // Parameters : buyItem pointer
 // Created : 2022/6/2 03:14 am
 // Author : 김준모
-// 작업중
 void BuyItemUI::buyItem(BuyItem* buyItem) {
 	Item* item = buyItem->buyItem();
 	fout << "4.2. 상품 구매" << endl;
 	fout << "> " << item->getSellerName() << ' ' << item->getItemName() << endl <<  endl;
 }
 
-string* BuyItemCheck::showBuyItemList() {
+// Function : BuyItemCheck::getBuyItemList()
+// Description : get Buy Item object as array
+// Return value : Item object list
+// Parameter : nowBuyItemList array
+// Created : 2022/6/2 16:47 pm
+// Author : 김준모
+list<Item*> BuyItemCheck::getBuyItemList(string* nowBuyItemList) {
+	list<Item*> buyItemList;
+	for (int i = 0; nowBuyItemList[i] != "" ; i++) {
+		buyItemList.push_back(itemList->searchItem(nowBuyItemList[i]));
+	}
+	sort(buyItemList.begin(), buyItemList.end(), compare);
+	return buyItemList;
+}
 
+
+// Function : BuyItemCheck::showBuyItemList()
+// Description : return buyItemList
+// Return value : buyItemList array pointer
+// Created : 2022/6/2 17:32 pm
+// Author : 김준모
+string* BuyItemCheck::showBuyItemList() {
+	BuyItemList* nowBuyItemList = memberList->getNowLoginBuyList();
+	return nowBuyItemList->getBuyItemList();
 }
 
 // Function : BuyItemCheckUI::checkBuyItemList()
@@ -97,14 +131,29 @@ string* BuyItemCheck::showBuyItemList() {
 // Parameters : buyItemCheck pointer
 // Created : 2022/6/2 03:27 am
 // Author : 김준모
-// 작업중
 void BuyItemCheckUI::checkBuyItemList(BuyItemCheck* buyItemCheck) {
 	fout << "4.3. 상품 구매 내역 조회" << endl;
 	string* nowBuyItemList = buyItemCheck->showBuyItemList();
-	for (int i = 0; nowBuyItemList[i] != ""; i++) {
-		nowBuyItemList[i].
-		fout << endl << endl;
+	list<Item*> buyItemList = buyItemCheck->getBuyItemList(nowBuyItemList);
+	list<Item*>::iterator iter;
+	for (iter = buyItemList.begin(); iter != buyItemList.end(); iter++) {
+		fout << "> " << (*iter)->getSellerName() << " " << (*iter)->getItemName() << " " << (*iter)->getCompanyName() << " " << (*iter)->getPrice() << " " << (*iter)->getNumberOfItem() << " " << (*iter)->getRating() << endl;
 	}
+	fout << endl;
+}
+
+Item* RateItem::rateItem(string itemName, int myRating) {
+	Item* item = itemList->searchItem(itemName);
+	item->rateItem(myRating);
+	return item;
+}
+
+void RateItemUI::rateItem(RateItem* rateItem) {
+	string itemName;
+	int myRating;
+	fin >> itemName >> myRating;
+	Item* item = rateItem->rateItem(itemName, myRating);
+	fout << "> " << item->getSellerName() << " " << item->getItemName() << " " << item->getRating() << endl << endl;
 }
 
 int main() {
@@ -173,6 +222,9 @@ void doTask() {
 			case 3:
 				checkBuyList();
 				break;
+			case 4:
+				rate();
+				break;
 			}
 			break;
 		case 6:
@@ -210,6 +262,10 @@ void buy() {
 
 void checkBuyList() {
 	BuyItemCheck buyItemCheck;
+}
+
+void rate() {
+	RateItem rateItem;
 }
 
 

@@ -1,0 +1,4 @@
+searchItem print 필요없음?
+
+memberList에서 현재 접속중인 멤버의 buyList를 가져오는 함수 만듦
+member에도 buyList 가져오는 함수 만듦
