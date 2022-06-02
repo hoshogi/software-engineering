@@ -12,15 +12,15 @@ using namespace std;
 
 // 함수 선언
 void doTask();
-void join();
-void withdraw();
-void login();
-void logout();
-void registerItem();
-void search();
-void buy();
-void checkBuyList();
-void rate();
+void doSignup();
+void doWithdraw();
+void doLogin();
+void doLogout();
+void doRegisterItem();
+void doSearch();
+void doBuy();
+void doCheckBuyList();
+void doRate();
 void program_exit();
 
 // 변수 선언
@@ -29,13 +29,120 @@ ofstream fout;
 MemberList* memberList;
 ItemList* itemList;
 
+// Function : SignUpUI::createNewMember(SignUp* signUp)
+// Description : file read and write Member's Info
+// Return Value : void
+// Created : 2022/6/2 1:08 pm
+// Author : Hoseok Lee
 void SignUpUI::createNewMember(SignUp* signUp) {
 	string name, residentNumber, id, password;
 
 	fin >> name >> residentNumber >> id >> password;
 	signUp->addNewMember(name, residentNumber, id, password);
 	fout << "1.1. 회원가입" << endl;
-	fout << name << ' ' << residentNumber << ' ' << id << ' ' << password << ' ' << endl << endl;
+	fout << "> " << name << ' ' << residentNumber << ' ' << id << ' ' << password << ' ' << endl << endl;
+}
+
+// Function : SignUp::Member:addNewMember(string name, string residentNumber, string id, string password)
+// Description : add new member into memberList
+// Return Value : void
+// Created : 2022/6/2 1:10 pm
+// Author : Hoseok Lee
+void SignUp::addNewMember(string name, string residentNumber, string id, string password) {
+	memberList->addNewMember(name, residentNumber, id, password);
+}
+
+// Function : WithdrawUI::withdrawMember(Withdraw* withdraw)
+// Description : file write withdraw member's id
+// Return Value : void
+// Created : 2022/6/2 2:25 pm
+// Author : Hoseok Lee
+void WithdrawUI::withdrawMember(Withdraw* withdraw) {
+	string id = withdraw->deleteMember();
+	fout << "1.2. 회원탈퇴" << endl;
+	fout << "> " << id << endl << endl;
+}
+
+// Function : Withdraw::deleteMember()
+// Description : delete member from memberList
+// Return Value : int
+// Created : 2022/6/2 2:26 pm
+// Author : Hoseok Lee
+string Withdraw::deleteMember() {
+	return memberList->deleteMember();
+}
+
+// Function : LoginUI::loginMember(Login* login)
+// Description : file write withdraw member's id, password
+// Return Value : void
+// Created : 2022/6/2 2:57 pm
+// Author : Hoseok Lee
+void LoginUI::loginMember(Login* login) {
+	string id, password;
+	fin >> id >> password;
+	fout << "2.1. 로그인" << endl;
+	if (login->checkMemberInfo(id, password))
+		fout << "> " << id << ' ' << password << endl << endl;
+	else
+		fout << "Wrong id or password" << endl << endl;
+}
+
+// Function : Login::checkMemberInfo(string id, string password)
+// Description : check member's id, password correctly
+// Return Value : bool
+// Created : 2022/6/2 2:57 pm
+// Author : Hoseok Lee
+bool Login::checkMemberInfo(string id, string password) {
+	return memberList->checkMemberInfo(id, password);
+}
+
+// Function : LogoutUI::logoutMember(Logout* logout)
+// Description : file write member's id
+// Return Value : void
+// Created : 2022/6/2 3:09 pm
+// Author : Hoseok Lee
+void LogoutUI::logoutMember(Logout* logout) {
+	string id = logout->logoutMember();
+	fout << "2.2. 로그아웃" << endl;
+	fout << id << endl << endl;
+}
+
+// Function : Logout::logoutMember()
+// Description : logout member
+// Return Value : string
+// Created : 2022/6/2 2:57 pm
+// Author : Hoseok Lee
+string Logout::logoutMember() {
+	return memberList->setNowLoginMemberIndexMinusOne();
+}
+
+// Function : RegisterItemUI::registerNewItem(RegisterItem* registerItem)
+// Description : read and write item's info
+// Return Value : void
+// Created : 2022/6/2 6:09 pm
+// Author : Hoseok Lee
+void RegisterItemUI::registerNewItem(RegisterItem* registerItem) {
+	int numberOfItem, price;
+	string itemName, companyName;
+	fin >> itemName >> companyName >> price >> numberOfItem;
+	cout << 4 << endl;
+	registerItem->addNewItem(itemName, companyName, price, numberOfItem);
+	cout << 8 << endl;
+	fout << "3.1. 판매 의류 등록" << endl;
+	fout << itemName << ' ' << companyName << ' ' << price << ' ' << numberOfItem << endl << endl;
+}
+
+// Function : RegisterItem::addNewItem(string itemName, string companyName, int price, int numberOfItem)
+// Description : add new item
+// Return Value : void
+// Created : 2022/6/2 6:10 pm
+// Author : Hoseok Lee
+void RegisterItem::addNewItem(string itemName, string companyName, int price, int numberOfItem) {
+	cout << 5 << endl;
+	string sellerId = memberList->getNowLoginMemberId();
+	cout << 6 << endl;
+	itemList->addNewItem(sellerId, itemName, companyName, price, numberOfItem);
+	cout << 7 << endl;
 }
 
 int main() {
@@ -47,8 +154,6 @@ int main() {
 	itemList = new ItemList();
 
 	doTask();
-
-	// ...
 
 	return 0;
 }
@@ -68,28 +173,27 @@ void doTask() {
 		case 1:
 			switch (menu_level_2) {
 			case 1:   // "1.1. 회원가입“ 메뉴 부분
-				join();
+				doSignup();
 				break;
 			case 2:
-				// withdraw();
+				doWithdraw();
 				break;
-
 			}
 			break;
 		case 2:
 			switch (menu_level_2) {
 			case 1:
-				// login();
+				doLogin();
 				break;
 			case 2:
-				// logout();
+				doLogout();
 				break;
 			}
 			break;
 		case 3:
 			switch (menu_level_2) {
 			case 1:
-				// registerItem();
+				doRegisterItem();
 				break;
 			}
 			break;
@@ -122,34 +226,27 @@ void doTask() {
 	}
 }
 
-void SignUp::addNewMember(string name, string residentNumber, string id, string password) {
-	memberList->addNewMember(name, residentNumber, id, password);
-}
-
-void join() {
+void doSignup() {
 	SignUp signUp;
-	
 }
 
-//void example() {
-//	char user_type[MAX_STRING], name[MAX_STRING], SSN [MAX_STRING],
-//		address[MAX_STRING], ID[MAX_STRING], password[MAX_STRING];
-//
-//	// 입력 형식 : 이름, 주민번호, ID, Password를 파일로부터 읽음
-//	fscanf(in_fp, "%s %s %s %s", name, SSN, ID, password);
-//
-//	// 해당 기능 수행  
-//	// ...
-//
-//		// 출력 형식
-//	fprintf(out_fp, "1.1. 회원가입\n");
-//	fprintf(out_fp, "%s %s %s %s\n", name, SSN, ID, password);
-//
-//
-//}
+void doWithdraw() {
+	Withdraw witdraw;
+}
 
-//void program_exit() {
-//	fin.close();
-//	fout.close();
-//	// ....
-//}
+void doLogin() {
+	Login login;
+}
+
+void doLogout() {
+	Logout logout;
+}
+
+void doRegisterItem() {
+	RegisterItem registerItem;
+}
+
+void program_exit() {
+	fin.close();
+	fout.close();
+}

@@ -9,8 +9,8 @@ using namespace std;
 // Parameters : string sellerName, string itemName, string companyName, int price, int numberOfItem
 // Created : 2022/6/1 21:40 pm
 // Author : ±èÁØ¸ð
-Item::Item(string sellerName, string itemName, string companyName, int price, int numberOfItem) {
-    this->sellerName = sellerName;
+Item::Item(string sellerId, string itemName, string companyName, int price, int numberOfItem) {
+    this->sellerId = sellerId;
     this->itemName = itemName;
     this->companyName = companyName;
     this->price = price;
@@ -22,8 +22,8 @@ Item::Item(string sellerName, string itemName, string companyName, int price, in
 // Return value : string
 // Created : 2022/6/1 22:05 pm
 // Author : ±èÁØ¸ð
-string Item::getSellerName() {
-    return sellerName;
+string Item::getSellerId() {
+    return sellerId;
 }
 
 // Function : string Item::getItemName()

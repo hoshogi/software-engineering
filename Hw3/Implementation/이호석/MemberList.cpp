@@ -21,12 +21,14 @@ void MemberList::addNewMember(string name, string residentNumber, string id, str
 
 // Function : deleteMember()
 // Description : deallocate member
-// Return Value : void
+// Return Value : int
 // Created : 2022/6/1 10:17pm
 // Author : Hoseok Lee
-void MemberList::deleteMember() {
+string MemberList::deleteMember() {
+    string id = memberList[nowLoginMemberIndex]->getId();
     delete memberList[nowLoginMemberIndex];
     nowLoginMemberIndex = -1;
+    return id;
 }
 
 // Function : checkMemberInfo()
@@ -37,9 +39,9 @@ void MemberList::deleteMember() {
 bool MemberList::checkMemberInfo(string id, string password) {
     for (int i = 0; i < numberOfMembers; i++) {
         if (memberList[i]->getId() == id) {
-            if (memberList[i]->getPassword() == password) {
-                return true;
+            if (memberList[i]->getPassword() == password) {                
                 nowLoginMemberIndex = i;
+                return true;
             }
             else
                 return false;
@@ -50,11 +52,13 @@ bool MemberList::checkMemberInfo(string id, string password) {
 
 // Function : setNowLoginMemberIndex()
 // Description : set now login member index
-// Return Value : bool
+// Return Value : string
 // Created : 2022/6/1 10:21pm
 // Author : Hoseok Lee
-void MemberList::setNowLoginMemberIndexMinusOne() {
+string MemberList::setNowLoginMemberIndexMinusOne() {
+    string id = memberList[nowLoginMemberIndex]->getId();
     nowLoginMemberIndex = -1;
+    return id;
 }
 
 // Function : getNowLoginMemberName()
@@ -62,6 +66,6 @@ void MemberList::setNowLoginMemberIndexMinusOne() {
 // Return Value : string
 // Created : 2022/6/1 10:45pm
 // Author : Hoseok Lee
-string MemberList::getNowLoginMemberName() {
-    return memberList[nowLoginMemberIndex]->getName();
+string MemberList::getNowLoginMemberId() {
+    return memberList[nowLoginMemberIndex]->getId();
 }
