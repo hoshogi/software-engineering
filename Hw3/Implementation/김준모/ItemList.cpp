@@ -1,10 +1,12 @@
-#include "ItemList.h"
+#include "Shopping.h"
+using namespace std;
 
 // Function : ItemList()
 // Description : Itemlist Constructor
 // Created : 2022/6/1 23:10 pm
 // Author : ±èÁØ¸ð
 ItemList::ItemList() {
+    fill_n(itemList, 50, NULL);
     nowSearchItemIndex = -1;
     numberOfItem = 0;
 }
@@ -19,6 +21,7 @@ ItemList::ItemList() {
 Item* ItemList::searchItem(string itemName) {
     for (int i = 0; i < numberOfItem; i++) {
         if (itemList[i]->getItemName() == itemName) {
+            nowSearchItemIndex = i;
             return itemList[i];
         }
     }

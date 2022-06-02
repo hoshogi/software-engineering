@@ -1,6 +1,5 @@
-#include "BuyItemList.h"
+#include "Shopping.h"
 #include <string>
-#include <algorithm>
 using namespace std;
 
 // Function : BuyItemList()
@@ -8,7 +7,7 @@ using namespace std;
 // Created : 2022/6/1 23:51 pm
 // Author : ±èÁØ¸ð
 BuyItemList::BuyItemList() {
-    fill_n(buyItemNames, 50, NULL);
+    fill_n(buyItemNames, 50, "");
     numberOfBuyItem = 0;
 }
 
