@@ -116,7 +116,7 @@ bool Login::checkMemberInfo(string id, string password) {
 void LogoutUI::logoutMember(Logout* logout) {
 	string id = logout->logoutMember();
 	fout << "2.2. 로그아웃" << endl;
-	fout << id << endl << endl;
+	fout << "> " << id << endl << endl;
 }
 
 // Function : Logout::logoutMember()
@@ -139,7 +139,7 @@ void RegisterItemUI::registerNewItem(RegisterItem* registerItem) {
 	fin >> itemName >> companyName >> price >> numberOfItem;
 	registerItem->addNewItem(itemName, companyName, price, numberOfItem);
 	fout << "3.1. 판매 의류 등록" << endl;
-	fout << itemName << ' ' << companyName << ' ' << price << ' ' << numberOfItem << endl << endl;
+	fout << "> " << itemName << ' ' << companyName << ' ' << price << ' ' << numberOfItem << endl << endl;
 }
 
 // Function : RegisterItem::addNewItem(string itemName, string companyName, int price, int numberOfItem)
@@ -241,12 +241,23 @@ void BuyItemCheckUI::checkBuyItemList(BuyItemCheck* buyItemCheck) {
 	fout << endl;
 }
 
+// Function : RateItem::rateItem(string itemName, int myRating)
+// Description : rates item and return Item object
+// Return value : Item object
+// Parameter : item's name, my rating
+// Created : 2022/6/2 21:15 pm
+// Author : 김준모s
 Item* RateItem::rateItem(string itemName, int myRating) {
 	Item* item = itemList->searchItem(itemName);
 	item->rateItem(myRating);
 	return item;
 }
 
+// Function : RateItemUI::rateItem(RateItem* rateItem)
+// Description : input and output when rate item
+// Parameters : RateItem pointer
+// Created : 2022/6/2 21:14 pm
+// Author : 김준모
 void RateItemUI::rateItem(RateItem* rateItem) {
 	string itemName;
 	int myRating;
